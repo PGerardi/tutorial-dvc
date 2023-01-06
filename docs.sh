@@ -53,5 +53,5 @@ dvc push
 
 python src/prepare.py
 dvc add data/prepared/train.csv data/prepared/test.csv
-git add --all
+git add .
 git commit -m "Created train and test CSV files"
