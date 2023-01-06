@@ -8,29 +8,33 @@ from skimage.transform import resize
 from sklearn.linear_model import SGDClassifier
 
 
+# Load the images as a list, from a dataframe
 def load_images(data_frame, column_name):
     filelist = data_frame[column_name].to_list()
     image_list = imread_collection(filelist)
     return image_list
 
 
+#  Load the labels as a list, from a dataframe
 def load_labels(data_frame, column_name):
     label_list = data_frame[column_name].to_list()
     return label_list
 
 
+# preprocess the image, rescale and linearize
 def preprocess(image):
     resized = resize(image, (100, 100, 3))
     reshaped = resized.reshape((1, 30000))
     return reshaped
 
 
+# call the data
 def load_data(data_path):
     df = pd.read_csv(data_path)
     labels = load_labels(data_frame=df, column_name="label")
     raw_images = load_images(data_frame=df, column_name="filename")
     processed_images = [preprocess(image) for image in raw_images]
-    data = np.concatenate(processed_images, axis=0)
+    data = np.concatenate(processed_images, axis=0) 
     return data, labels
 
 

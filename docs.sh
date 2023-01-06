@@ -55,3 +55,22 @@ python src/prepare.py
 dvc add data/prepared/train.csv data/prepared/test.csv
 git add .
 git commit -m "Created train and test CSV files"
+
+
+# Train the model
+
+python src/train.py
+dvc add model/model.joblib
+git add .
+git commit -m "Trained an SGD classifier"
+
+
+# Evaluate the model
+python src/evaluate.py
+git add .
+git commit -m "Evaluate the SGD model accuracy"
+
+
+# Version the data
+git push
+dvc push

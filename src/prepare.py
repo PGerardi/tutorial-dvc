@@ -2,9 +2,16 @@ from pathlib import Path
 
 import pandas as pd
 
+# Generate a csv to look like this
+
+# filename, label
+# full/path/to/data-version-control/raw/n03445777/n03445777_5768.JPEG,golf ball
+# full/path/to/data-version-control/raw/n03445777/n03445777_5768,golf ball
+# full/path/to/data-version-control/raw/n03445777/n03445777_11967.JPEG,golf ball
+
 FOLDERS_TO_LABELS = {"n03445777": "golf ball", "n03888257": "parachute"}
 
-
+#  Get a list of a the file name and all the labels of data path
 def get_files_and_labels(source_path):
     images = []
     labels = []
@@ -17,7 +24,7 @@ def get_files_and_labels(source_path):
             labels.append(label)
     return images, labels
 
-
+#Save them as a csv
 def save_as_csv(filenames, labels, destination):
     data_dictionary = {"filename": filenames, "label": labels}
     data_frame = pd.DataFrame(data_dictionary)
