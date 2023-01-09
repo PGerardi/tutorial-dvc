@@ -239,7 +239,7 @@ These can be chained together into a single execution called a DVC pipeline that
     ```
 4. Track experiment
    ```sh
-     python /home/HAVEN.ANTWERPEN.LOCAL/pgerardi/Documents/projects/tutorial-data-version-control/src/log_mlflow.py
+     python src/log_mlflow.py
     ```
 
 
