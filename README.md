@@ -226,7 +226,21 @@ These can be chained together into a single execution called a DVC pipeline that
     ```
 
 
+## MLFlow logging
 
+1. Add azureml config file to the repository
+2. Log in to Azure
+   ```sh
+     az login --use-device-code
+    ```
+3. Add dependencies (already present in the requirement.txt file)
+    ```sh
+     pip install mlflow, azureml-core, azureml-mlflow
+    ```
+4. Track experiment
+   ```sh
+     python /home/HAVEN.ANTWERPEN.LOCAL/pgerardi/Documents/projects/tutorial-data-version-control/src/log_mlflow.py
+    ```
 
 
 
