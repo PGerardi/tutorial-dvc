@@ -6,6 +6,7 @@ import pandas as pd
 from skimage.io import imread_collection
 from skimage.transform import resize
 from sklearn.linear_model import SGDClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 
 # Load the images as a list, from a dataframe
@@ -37,7 +38,16 @@ def load_data(data_path):
     data = np.concatenate(processed_images, axis=0) 
     return data, labels
 
+# RANDOM_FORREST_MODEL
+# def main(path_to_repo):
+#     train_csv_path = repo_path / "data/prepared/train.csv"
+#     train_data, labels = load_data(train_csv_path)
+#     rf = RandomForestClassifier()
+#     trained_model = rf.fit(train_data, labels)
+#     dump(trained_model, repo_path / "model/model.joblib")
 
+
+# SGD_MODEL
 def main(repo_path):
     train_csv_path = repo_path / "data/prepared/train.csv"
     train_data, labels = load_data(train_csv_path)
