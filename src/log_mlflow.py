@@ -13,7 +13,7 @@ def mlflow_logging() -> None:
     metrics_file.close()
     mlflow.log_metrics(metrics)
     mlflow.log_param("model_type", "sgd")
-    mlflow.log_param("iterations", 100)
+    mlflow.log_param("iterations", 10)
     mlflow.log_artifact("dvc.lock")
     mlflow.log_artifact("metrics/accuracy.json")
 
